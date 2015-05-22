@@ -1,0 +1,16 @@
+Brasília, 22/05/2015
+Fernando Frazão
+EMATER DF
+
+iniciar com o maven archetype para web
+=> mvn archetype:generate -DgroupId=br.gov.df.emater.aterwebsrv -DartifactId=aterwebsrv -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+=> consultado em: http://stackoverflow.com/questions/2782066/maven-archetype-for-simple-servlet-application
+
+preparar o pom para uso através do spring boot
+=> capítulo 10.1.1 
+=> consultado em: http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started-maven-installation
+
+criar a classe principal de teste, gravar como SpringBoot
+=> capítulo 11.3
+=> consultado em: http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started-first-application-code
+
