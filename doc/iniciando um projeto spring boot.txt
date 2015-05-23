@@ -14,3 +14,8 @@ criar a classe principal de teste, gravar como SpringBoot
 => capítulo 11.3
 => consultado em: http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started-first-application-code
 
+adicionar projeto ao github
+=> https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
+
+para testar
+mvn spring-boot:run
