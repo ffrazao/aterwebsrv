@@ -19,3 +19,6 @@ adicionar projeto ao github
 
 para testar
 mvn spring-boot:run
+
+transformar o projeto em eclipse
+mvn eclipse:eclipse -Dwtpversion=2.0
