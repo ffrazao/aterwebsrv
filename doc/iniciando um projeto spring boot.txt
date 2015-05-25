@@ -22,3 +22,6 @@ mvn spring-boot:run
 
 transformar o projeto em eclipse
 mvn eclipse:eclipse -Dwtpversion=2.0
+
+
+para ativar a segurança leitura de http://spring.io/guides/tutorials/bookmarks/
