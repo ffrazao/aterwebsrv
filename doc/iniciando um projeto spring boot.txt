@@ -25,3 +25,9 @@ mvn eclipse:eclipse -Dwtpversion=2.0
 
 
 para ativar a segurança leitura de http://spring.io/guides/tutorials/bookmarks/
+
+
+dia 22/06/2015 reiniciei o projeto para comecar pelo Hibernate. Tudo apagado e usado o link
+http://shruubi.com/2014/12/03/spring-boot-hibernate-and-spring-security-a-step-in-the-right-direction-for-java/
+
+para produzir o resultado
