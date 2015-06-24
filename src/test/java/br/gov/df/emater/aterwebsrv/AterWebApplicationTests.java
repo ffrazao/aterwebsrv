@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.data.domain.Page;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
@@ -21,19 +20,16 @@ public class AterWebApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		//testeBo.apagarTudo();
+		// testeServico.apagarTudo();
 
-		Teste t;
-		for (Long i = 51l; i < 101; i++) {
-			//t = testeServico.listar(i);
-			t = new Teste(i);
-			t.setNome("nome putz " + i);
-			testeBo.salvar(t);
-		}
-		
-		//Page<Teste> resposta = testeBo.listarTudo();
-
-		//System.out.println(resposta);
+		// for (Long i = 51l; i < 101; i++) {
+		// Teste t = testeServico.listar(i);
+		// t.setNome("nome putz " + i);
+		// testeServico.salvar(t);
+		// }
+		// Page<Teste> resposta = testeServico.listarTudo();
+		//
+		// System.out.println(resposta);
 	}
 
 }
