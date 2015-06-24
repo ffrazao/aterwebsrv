@@ -16,8 +16,12 @@ public class Teste {
 		
 	}
 	
-	public Teste(Long id, String nome) {
+	public Teste(Long id) {
 		setId(id);
+	}
+
+	public Teste(Long id, String nome) {
+		this(id);
 		setNome(nome);
 	}
 
