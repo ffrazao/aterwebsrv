@@ -8,29 +8,32 @@ import org.springframework.data.domain.Page;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import br.gov.df.emater.aterwebsrv.bo.TesteBo;
 import br.gov.df.emater.aterwebsrv.modelo.teste.Teste;
-import br.gov.df.emater.aterwebsrv.servico.TesteServico;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = AterWebApplication.class)
 @WebAppConfiguration
 public class AterWebApplicationTests {
-	
+
 	@Autowired
-	private TesteServico testeServico;
+	private TesteBo testeBo;
 
 	@Test
 	public void contextLoads() {
-		// testeServico.apagarTudo();
-		
+		//testeBo.apagarTudo();
+
+		Teste t;
 		for (Long i = 51l; i < 101; i++) {
-			Teste t = testeServico.listar(i);
+			//t = testeServico.listar(i);
+			t = new Teste(i);
 			t.setNome("nome putz " + i);
-			testeServico.salvar(t);
+			testeBo.salvar(t);
 		}
-		Page<Teste> resposta = testeServico.listarTudo();
 		
-		System.out.println(resposta);
+		//Page<Teste> resposta = testeBo.listarTudo();
+
+		//System.out.println(resposta);
 	}
 
 }
