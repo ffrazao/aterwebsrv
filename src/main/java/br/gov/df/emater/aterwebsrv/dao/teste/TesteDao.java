@@ -1,4 +1,4 @@
-package br.gov.df.emater.aterwebsrv.dao;
+package br.gov.df.emater.aterwebsrv.dao.teste;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.JpaRepository;

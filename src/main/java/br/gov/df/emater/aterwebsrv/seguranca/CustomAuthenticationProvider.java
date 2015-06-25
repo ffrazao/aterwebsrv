@@ -6,8 +6,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
 
-import br.gov.df.emater.aterwebsrv.bo.ServicoFacade;
-import br.gov.df.emater.aterwebsrv.dao.TesteDao;
+import br.gov.df.emater.aterwebsrv.bo.FacadeBo;
 
 /**
  * Classe customizada para customizar a autentica��o de usu�rios
@@ -19,10 +18,7 @@ import br.gov.df.emater.aterwebsrv.dao.TesteDao;
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 	@Autowired
-	private ServicoFacade testeBo;
-
-	@Autowired
-	private TesteDao testeDao;
+	private FacadeBo servicoFacade;
 
 	@Override
 	public Authentication authenticate(Authentication autenticacao) throws AuthenticationException {

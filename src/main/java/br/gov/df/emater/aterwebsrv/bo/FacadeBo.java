@@ -14,13 +14,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Qualifier("servicoFacade")
-public class ServicoFacade {
+public class FacadeBo {
 
 	private static final String DEFAULT_XML = "/br/gov/df/emater/aterwebsrv/bo/";
 	protected Catalog catalog;
 	protected ConfigParser parser = new ConfigParser();
 
-	public ServicoFacade() throws Exception {
+	public FacadeBo() throws Exception {
 		URL local = this.getClass().getResource(DEFAULT_XML);
 		File diretorio = new File(local.getPath());
 		for (File dir : diretorio.listFiles()) {
@@ -35,7 +35,7 @@ public class ServicoFacade {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		new ServicoFacade();
+		new FacadeBo();
 	}
 
 	public Object executar(String nomeAcao) {

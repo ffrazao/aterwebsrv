@@ -11,7 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.gov.df.emater.aterwebsrv.dao.TesteDao;
+import br.gov.df.emater.aterwebsrv.dao.teste.TesteDao;
 
 public class Teste implements Command {
 
