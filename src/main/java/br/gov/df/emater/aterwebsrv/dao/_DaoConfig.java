@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "br.gov.df.emater.aterwebsrv.persistencia")
+@EnableJpaRepositories(basePackages = "br.gov.df.emater.aterwebsrv.dao")
 @EntityScan(basePackages = "br.gov.df.emater.aterwebsrv.modelo")
 @EnableTransactionManagement
 public class _DaoConfig {

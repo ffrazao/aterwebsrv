@@ -14,7 +14,7 @@ public class SegurancaRest {
 
 	@RequestMapping("/login")
 	public Resposta login() {
-		servicoFacade.executar("TesteBo");
+		servicoFacade.executar("testeChd");
 		return new Resposta();
 	}
 	

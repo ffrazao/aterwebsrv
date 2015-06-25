@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+	<command name="pessoaSalvarCmd" className="br.gov.df.emater.aterwebsrv.bo.pessoa.Salvar" />
+	<chain name="pessoaSalvarChd">
+		<command className="br.gov.df.emater.aterwebsrv.bo.pessoa.Salvar" />
+		<command className="br.gov.df.emater.aterwebsrv.bo.pessoa.Salvar" />
+		<command className="br.gov.df.emater.aterwebsrv.bo.pessoa.Salvar" />
+	</chain>
+</catalog>

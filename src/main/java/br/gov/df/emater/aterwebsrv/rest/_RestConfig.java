@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "br.gov.df.emater.aterwebsrv.rest" })
+@ComponentScan(basePackages = { "br.gov.df.emater.aterwebsrv" })
 public class _RestConfig extends WebMvcConfigurerAdapter {
 
 	@Override

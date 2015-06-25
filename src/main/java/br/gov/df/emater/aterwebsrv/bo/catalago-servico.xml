@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<catalog>
-   <chain name="teste">
-      <command className="br.gov.df.emater.aterwebsrv.bo.TesteBo"/>
-      <command className="br.gov.df.emater.aterwebsrv.bo.TesteBo"/>
-   </chain>
-</catalog>

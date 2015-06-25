@@ -1,32 +1,48 @@
 package br.gov.df.emater.aterwebsrv.bo;
 
+import java.io.File;
+import java.net.URL;
+
 import org.apache.commons.chain.Catalog;
+import org.apache.commons.chain.CatalogFactory;
 import org.apache.commons.chain.Command;
 import org.apache.commons.chain.Context;
 import org.apache.commons.chain.config.ConfigParser;
-import org.apache.commons.chain.impl.CatalogFactoryBase;
 import org.apache.commons.chain.impl.ContextBase;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
-//@Qualifier("servicoFacade")
+@Qualifier("servicoFacade")
 public class ServicoFacade {
 
+	private static final String DEFAULT_XML = "/br/gov/df/emater/aterwebsrv/bo/";
 	protected Catalog catalog;
 	protected ConfigParser parser = new ConfigParser();
-	private static final String DEFAULT_XML = "/br/gov/df/emater/aterwebsrv/bo/catalago-servico.xml";
 
 	public ServicoFacade() throws Exception {
-		load(DEFAULT_XML);
+		URL local = this.getClass().getResource(DEFAULT_XML);
+		File diretorio = new File(local.getPath());
+		for (File dir : diretorio.listFiles()) {
+			if (dir.isDirectory()) {
+				for (File xml: dir.listFiles()) {
+					if (xml.getName().endsWith(".xml")) {
+						load(String.format("%s%s/%s/", DEFAULT_XML, dir.getName(), xml.getName()));						
+					}
+				}
+			}
+		}
+	}
+	
+	public static void main(String[] args) throws Exception {
+		new ServicoFacade();
 	}
 
 	public Object executar(String nomeAcao) {
 		return this.executar(nomeAcao, null);
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	@Transactional
 	public Object executar(String nomeAcao, Object parametros) {
 		Context context = new ContextBase();
 		Command acao = catalog.getCommand(nomeAcao);
@@ -38,9 +54,9 @@ public class ServicoFacade {
 		return context;
 	}
 
-	protected void load(String path) throws Exception {
+	private void load(String path) throws Exception {
 		parser.parse(this.getClass().getResource(path));
-		catalog = CatalogFactoryBase.getInstance().getCatalog();
+		catalog = CatalogFactory.getInstance().getCatalog();
 	}
 
 }
