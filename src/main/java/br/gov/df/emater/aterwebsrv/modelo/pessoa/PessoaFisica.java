@@ -12,6 +12,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.search.annotations.Field;
@@ -26,6 +27,7 @@ import br.gov.df.emater.aterwebsrv.modelo.dominio.CnhCategoria;
 import br.gov.df.emater.aterwebsrv.modelo.dominio.Escolaridade;
 import br.gov.df.emater.aterwebsrv.modelo.dominio.EstadoCivil;
 import br.gov.df.emater.aterwebsrv.modelo.dominio.Nacionalidade;
+import br.gov.df.emater.aterwebsrv.modelo.dominio.PessoaGeracao;
 import br.gov.df.emater.aterwebsrv.modelo.dominio.PessoaTipo;
 import br.gov.df.emater.aterwebsrv.modelo.dominio.RegimeCasamento;
 import br.gov.df.emater.aterwebsrv.modelo.dominio.Sexo;
@@ -117,7 +119,7 @@ public class PessoaFisica extends Pessoa {
 
 	@Enumerated(EnumType.STRING)
 	private Escolaridade escolaridade;
-
+	
 	@Column(name = "estado_civil")
 	@Enumerated(EnumType.STRING)
 	private EstadoCivil estadoCivil;
@@ -139,6 +141,10 @@ public class PessoaFisica extends Pessoa {
 	@Field(index = Index.YES, store = Store.YES)
 	private String nisNumero;
 
+	@Transient
+	@Enumerated(EnumType.STRING)
+	private PessoaGeracao pessoaGeracao;
+
 	@ManyToOne
 	@JoinColumn(name = "profissao_id")
 	private Profissao profissao;
@@ -150,16 +156,16 @@ public class PessoaFisica extends Pessoa {
 	@JsonDeserialize(using = JsonDeserializerData.class)
 	private Calendar rgDataEmissao;
 
-	@ManyToOne
-	@JoinColumn(name = "rg_pessoa_grupo_id")
-	private PessoaGrupoMunicipioVi rgPessoaGrupoMunicipioVi;
-
 	@Column(name = "rg_numero")
 	@Field(index = Index.YES, store = Store.YES)
 	private String rgNumero;
 
 	@Column(name = "rg_orgao_emissor")
 	private String rgOrgaoEmissor;
+
+	@ManyToOne
+	@JoinColumn(name = "rg_pessoa_grupo_id")
+	private PessoaGrupoMunicipioVi rgPessoaGrupoMunicipioVi;
 
 	@Enumerated(EnumType.STRING)
 	@NotNull
@@ -180,7 +186,7 @@ public class PessoaFisica extends Pessoa {
 	public PessoaFisica() {
 		setPessoaTipo(PessoaTipo.PF);
 	}
-	
+
 	public PessoaFisica(Integer id) {
 		super(id);
 		setPessoaTipo(PessoaTipo.PF);
@@ -190,7 +196,7 @@ public class PessoaFisica extends Pessoa {
 		super(id, nome, apelidoSigla);
 		setPessoaTipo(PessoaTipo.PF);
 	}
-
+	
 	public String getCamNumero() {
 		return camNumero;
 	}
@@ -279,6 +285,10 @@ public class PessoaFisica extends Pessoa {
 		return nisNumero;
 	}
 
+	public PessoaGeracao getPessoaGeracao() {
+		return pessoaGeracao;
+	}
+
 	public Profissao getProfissao() {
 		return profissao;
 	}
@@ -287,16 +297,16 @@ public class PessoaFisica extends Pessoa {
 		return rgDataEmissao;
 	}
 
-	public PessoaGrupoMunicipioVi getRgPessoaGrupoMunicipioVi() {
-		return rgPessoaGrupoMunicipioVi;
-	}
-
 	public String getRgNumero() {
 		return rgNumero;
 	}
 
 	public String getRgOrgaoEmissor() {
 		return rgOrgaoEmissor;
+	}
+
+	public PessoaGrupoMunicipioVi getRgPessoaGrupoMunicipioVi() {
+		return rgPessoaGrupoMunicipioVi;
 	}
 
 	public Sexo getSexo() {
@@ -403,6 +413,10 @@ public class PessoaFisica extends Pessoa {
 		this.nisNumero = nisNumero;
 	}
 
+	public void setPessoaGeracao(PessoaGeracao pessoaGeracao) {
+		this.pessoaGeracao = pessoaGeracao;
+	}
+
 	public void setProfissao(Profissao profissao) {
 		this.profissao = profissao;
 	}
@@ -411,16 +425,16 @@ public class PessoaFisica extends Pessoa {
 		this.rgDataEmissao = rgDataEmissao;
 	}
 
-	public void setRgPessoaGrupoMunicipioVi(PessoaGrupoMunicipioVi rgPessoaGrupoMunicipioVi) {
-		this.rgPessoaGrupoMunicipioVi = rgPessoaGrupoMunicipioVi;
-	}
-
 	public void setRgNumero(String rgNumero) {
 		this.rgNumero = rgNumero;
 	}
 
 	public void setRgOrgaoEmissor(String rgOrgaoEmissor) {
 		this.rgOrgaoEmissor = rgOrgaoEmissor;
+	}
+
+	public void setRgPessoaGrupoMunicipioVi(PessoaGrupoMunicipioVi rgPessoaGrupoMunicipioVi) {
+		this.rgPessoaGrupoMunicipioVi = rgPessoaGrupoMunicipioVi;
 	}
 
 	public void setSexo(Sexo sexo) {
